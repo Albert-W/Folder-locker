@@ -43,7 +43,7 @@ namespace folderLocker
         string DEL = "DELETE FROM FolderInfo WHERE folderName =@folderName";
         DbHelperSQLite.ExecuteSql(DEL, p);
         //
-
+        SendKeys.SendWait("{f5}");
         this.Close();
       }
       else

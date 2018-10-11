@@ -40,6 +40,7 @@ namespace folderLocker
         DbHelperSQLite.ExecuteSql(SQLinsert,p1, p2);
         //
         MessageBox.Show("The folder is locked.");
+        SendKeys.SendWait("{f5}");
         this.Close();
       }
       else

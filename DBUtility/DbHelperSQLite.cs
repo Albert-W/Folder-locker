@@ -15,11 +15,12 @@ namespace DBUtility
   /// </summary>
   public abstract class DbHelperSQLite
   {
-    //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.		
+    //数据库连接字符串(App.config来配置)，可以动态更改connectionString支持多数据库.		
     public static string connectionString = PubConstant.ConnectionString;
-
+    
     //public static string connectionString = "data source=Student.db;version=3;";
     //public static string connectionString = ConfigurationManager.ConnectionStrings["sqlConn"].ConnectionString;
+
 
     public DbHelperSQLite()
     {
@@ -31,8 +32,8 @@ namespace DBUtility
     /// <param name="file">数据库名</param>
     public static void createDd(string file)
     {
-      
-      if (File.Exists(file)==true)// 不同于目录Directory
+
+      if (File.Exists(file) == true)// 不同于目录Directory
       {
         Console.WriteLine("数据库存在");
 
@@ -48,14 +49,14 @@ namespace DBUtility
     /// 创建表格
     /// </summary>
     /// <param name="sql">建表语句</param>
-    
+
     public static void CreateTable(string sql)
     {
       SQLiteConnection conn = new SQLiteConnection(connectionString);
-      
-        conn.Open();
-        SQLiteCommand command = new SQLiteCommand(sql, conn);
-        command.ExecuteNonQuery();
+
+      conn.Open();
+      SQLiteCommand command = new SQLiteCommand(sql, conn);
+      command.ExecuteNonQuery();
 
     }
 

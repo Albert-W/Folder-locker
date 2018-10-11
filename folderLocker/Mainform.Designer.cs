@@ -59,16 +59,17 @@
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
-      // Form1
+      // Mainform
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(480, 99);
+      this.ClientSize = new System.Drawing.Size(503, 140);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.textBox1);
       this.Controls.Add(this.label1);
-      this.Name = "Form1";
+      this.Name = "Mainform";
       this.Text = "Folder Locker :";
+      this.Load += new System.EventHandler(this.Mainform_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 
