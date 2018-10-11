@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
+
 namespace folderLocker
 {
   public partial class Mainform : Form
@@ -28,6 +30,15 @@ namespace folderLocker
       arr[3] = ".{645FF040-5081-101B-9F08-00AA002F954E}";
       arr[4] = ".{2559a1f1-21d7-11d4-bdaf-00c04f60b9f0}";
       arr[5] = ".{7007ACC7-3202-11D1-AAD2-00805FC1270E}";
+      DBUtility.DbHelperSQLite.createDd("SQLFolder.db");
+      string sql = @"
+      CREATE TABLE IF NOT EXISTS FolderInfo (
+        folderName TEXT NOT NULL,
+        folderpwd TEXT NOT NULL
+      ); ";
+      DBUtility.DbHelperSQLite.CreateTable(sql);
+
+
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -41,27 +52,29 @@ namespace folderLocker
           try
           {
             this.textBox1.Text = dialog.SelectedPath;
-            if(this.textBox1.Text != "")
+            if (this.textBox1.Text != "")
             {
               string path = this.textBox1.Text;
               DirectoryInfo d = new DirectoryInfo(path);
-              if(path.LastIndexOf(".{") == -1) //if the folder is unlocked
+              if (path.LastIndexOf(".{") == -1) //if the folder is unlocked
               {
-                setpassword(path);
-                if (!d.Root.Equals(d.Parent.FullName))
+                if (setpassword(path))
                 {
                   d.MoveTo(path + arr[0]);
-
                 }
+                this.Close();
+
               }
               else
               {
-                if (checkpwd())
+                string subpath = path.Substring(0, path.LastIndexOf("."));
+                if (checkpwd(subpath))
                 {
-                  string subpath = path.Substring(0, path.LastIndexOf("."));
+                 
                   d.MoveTo(subpath);
                   textBox1.Text = path;
                 }
+                this.Close();
               }
             }
           }
@@ -77,16 +90,21 @@ namespace folderLocker
 
     private bool setpassword(string path)
     {
-      setpassword p = new setpassword();
+      setpassword p = new setpassword(path);
       p.ShowDialog();
       return p.status;
     }
-    private bool checkpwd()
+    private bool checkpwd(string path)
     {
-      checkpwd c = new checkpwd();
+      checkpwd c = new checkpwd(path);
       c.ShowDialog();
       return c.status;
     }
+
+
+
+
+
   }
-  
+
 }

@@ -2,43 +2,52 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DBUtility;
 
 namespace folderLocker
 {
   public partial class setpassword : Form
   {
     public bool status;
-    public setpassword()
+    public string path;
+    
+    public setpassword(string path)
     {
+      this.path = path;
       status = false;
+      
       InitializeComponent();
+      inputpwd.Select();
     }
 
 
-
-    private void textBox2_TextChanged(object sender, EventArgs e)
-    {
-
-    }
 
     private void button1_Click(object sender, EventArgs e)
     {
-      if(textBox1.Text.Equals(textBox2.Text) && textBox1.Text.Length != 0)
+      if(inputpwd.Text.Equals(confirmpwd.Text) && inputpwd.Text.Length != 0)
       {
         status = true;
+        //the password is valid, save it to sqlite.
+        string SQLinsert = "INSERT INTO FolderInfo (folderName,folderpwd) VALUES (@folderName,@folderpwd)";
+        SQLiteParameter p1 = new SQLiteParameter("@folderName", path);
+        SQLiteParameter p2 = new SQLiteParameter("@folderpwd", inputpwd.Text);
+        DbHelperSQLite.ExecuteSql(SQLinsert,p1, p2);
+        //
+        MessageBox.Show("The folder is locked.");
         this.Close();
       }
       else
       {
-        MessageBox.Show("Passwords don't match or blank password", "Error");
+        MessageBox.Show("Passwords don't match or blank password,please retype password" );
         //textBox1.Clear();
-        textBox2.Clear();
-        textBox1.Focus();
+        confirmpwd.Clear();
+        inputpwd.Focus();
       }
     }
 
