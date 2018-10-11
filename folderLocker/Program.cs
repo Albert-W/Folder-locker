@@ -18,9 +18,9 @@ namespace folderLocker
     {
       //查看数据库是否存在
       string startupPath = Application.StartupPath;
-      
+
       string file = startupPath + @"\SQLFolder.db";
-      
+
       if (File.Exists(file) != true)
       {
         DBUtility.DbHelperSQLite.createDd(file);
