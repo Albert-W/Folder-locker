@@ -1,2 +1,8 @@
 # Folder-locker
-It a tiny tools to locker your folder without compression 
+
+这是一个小巧的文件上锁软件，没有压缩和加密过程。
+
+## 软件展示
+
+
+
