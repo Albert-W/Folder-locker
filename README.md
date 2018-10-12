@@ -15,7 +15,9 @@
 项目分了两个目录：
 
 - DButility 用于通过轻量极数据库SQLite 保存密码。
+    - 通过Md5算法对密码加密，通过SQL参数防止SQL注入。
 - folderLocker 用于实现业务逻辑。
+    
 
 ## 软件使用
 
