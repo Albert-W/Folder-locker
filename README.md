@@ -21,7 +21,7 @@
 
 ## 软件使用
 
-- 下载软件安装包 [Folder Locker.exe](https://github.com/Albert-W/Folder-locker/blob/master/Folder%20Locker.exe)
+- 下载软件安装包 [Folder Locker.exe](https://github.com/Albert-W/Folder-locker/releases)
 - 进行安装，建议安装在D盘。
 - 可以右键使用，也可以打开软件主页面使用。
 
