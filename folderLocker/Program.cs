@@ -8,41 +8,41 @@ using System.Configuration;
 
 namespace folderLocker
 {
-  static class Program
-  {
-    /// <summary>
-    /// 应用程序的主入口点。
-    /// </summary>
-    [STAThread]
-    static void Main(string[] args)
+    static class Program
     {
-      //查看数据库是否存在
-      string startupPath = Application.StartupPath;
+        /// <summary>
+        /// 应用程序的主入口点。
+        /// </summary>
+        [STAThread]
+        static void Main(string[] args)
+        {
 
-      string file = startupPath + @"\SQLFolder.db";
+            string startupPath = Application.StartupPath;
 
-      if (File.Exists(file) != true)
-      {
-        DBUtility.DbHelperSQLite.createDd(file);
-        string sql = @"
+            string file = startupPath + @"\SQLFolder.db";
+
+            // Creat the DB and table if not exist
+            DBUtility.DbHelperSQLite.createDd(file);
+            string sql = @"
         CREATE TABLE IF NOT EXISTS FolderInfo (
         folderName TEXT NOT NULL,
         folderpwd TEXT NOT NULL
         ); ";
-        DBUtility.DbHelperSQLite.CreateTable(sql);
-      }
+            DBUtility.DbHelperSQLite.CreateTable(sql);
 
 
 
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
-      Mainform m = new Mainform();
-      if (args.Length > 0)
-      {
-        m.initPath = args[0];
-      }
 
-      Application.Run(m);
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Mainform m = new Mainform();
+            if (args.Length > 0)
+            {
+                m.initPath = args[0];
+            }
+
+            Application.Run(m);
+        }
     }
-  }
 }
