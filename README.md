@@ -1,43 +1,48 @@
 # Folder-locker
 
-这是一个小巧的文件上锁软件，**没有压缩和加密过程**，方便快捷。
+This is a tiny software used to lock folder, **without compression and encryption**, super convenient and fast。
 
-## 功能展示
+[中文介绍](README.CN.md)
+
+## Usage Demonstration
 
 ![](locker.gif)
 
-在想加密的文件夹上，右键则可呼出加密面板，输入两次密码确认加密。
+On the folder you want to lock, right-click to call out the lock panel, and enter the password twice to confirm the lock.
 
-在已加密的文件夹上，右键，输入密码，则取消加密
+On the locked folder, right-click, enter the password to cancel the lock.
 
-## 项目介绍
+## Project Introduction
 
-项目分了两个目录：
+The project is divided into two directories：
 
-- DButility 用于通过轻量极数据库SQLite 保存密码。
-    - 通过Md5算法对密码加密，通过SQL参数防止SQL注入。
-- folderLocker 用于实现业务逻辑。
+- DButility 
+    - Used to save passwords through the lightweight database SQLite.
+    - The password is encrypted by Md5 algorithm, and SQL injection is prevented by SQL parameters.
+- folderLocker 
+    - Used to implement business logic.
     
 
-## 软件使用
+## Note before using it：
+- The password is saved in the local database and is not uploaded to any server.
+- Removing the software also deletes the database and therefore the password.
 
-- 下载软件安装包 [Folder Locker.exe](https://github.com/Albert-W/Folder-locker/releases)
-- 进行安装，建议安装在D盘。
-- 可以右键使用，也可以打开软件主页面使用。
+## How to use
+
+- Download the software package [Folder Locker.exe](https://github.com/Albert-W/Folder-locker/releases)
+- For installation, it is recommended to install it on the D drive.
+- You can use it by right-clicking, or by clicking the icon and open the software interface.
 
 
-注意事项：
-- 密码保存在本机数据库，没有上传任何服务器。
-- 删除软件会同时删除数据库，因而删除密码。
+If you forget your password：
 
+If the password is lost and the file is locked, it can be renamed via the command line tool.
 
-如果忘记密码：
-
-如果密码遗失，文件被锁，可以通过命令行工具重命名。   
-例如，你的文件夹为 E:\folder, 就打开cmd命令窗口，执行如下命令     
+For example, if your folder is E:\folder, open the cmd command window and execute the following command
 ```
 ren e:\folder.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} new_folder
 ```
-其中{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} 不变，"new_folder"替换为自己想要的文件名。
+
+Where {2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} remains unchanged, and "new_folder" is replaced with the file name you want.
 
 
