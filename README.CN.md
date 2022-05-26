@@ -43,4 +43,4 @@ ren e:\folder.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} new_folder
 ```
 其中{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} 不变，"new_folder"替换为自己想要的文件名。
 
-**注意**：在1.3.0版本之后， 一个通用密码（**Albert-W**, 我的github id）可以解锁所以的文件。
+**注意**：在1.3.0版本之后， 一个通用密码（**Albert-W**, 我的github id）可以解锁所有的文件。
