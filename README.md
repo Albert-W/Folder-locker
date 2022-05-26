@@ -33,16 +33,17 @@ The project is divided into two directories：
 - For installation, it is recommended to install it on the D drive.
 - You can use it by right-clicking, or by clicking the icon and open the software interface.
 
-
+## Trouble shooting
 If you forget your password：
 
 If the password is lost and the file is locked, it can be renamed via the command line tool.
 
 For example, if your folder is E:\folder, open the cmd command window and execute the following command
-```
+
+```cmd
 ren e:\folder.{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} new_folder
 ```
 
 Where {2559a1f2-21d7-11d4-bdaf-00c04f60b9f0} remains unchanged, and "new_folder" is replaced with the file name you want.
 
-
+**Note**: In version 1.3.0, a universal password (**Albert-W**, i.e. my github id) can unlock all folders.
