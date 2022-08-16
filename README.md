@@ -1,6 +1,6 @@
 # Folder-locker
 
-This is a tiny software used to lock folder, **without compression and encryption**, super convenient and fast。
+This is a tiny software to lock a folder, **without compression and encryption**. it's super convenient and fast。
 
 [中文介绍](README.CN.md)
 
@@ -25,7 +25,7 @@ The project is divided into two directories：
 
 ## Note before using it：
 - The password is saved in the local database and is not uploaded to any server.
-- Removing the software also deletes the database and therefore the password.
+- Removing the software also deletes the database and therefore the password is gone.
 
 ## How to use
 
