@@ -1,6 +1,6 @@
 # Folder-locker
 
-This is a tiny software to lock a folder, **without compression and encryption**. it's super convenient and fast。
+This is a tiny software to lock a folder, **without compression and encryption**. it's super convenient and fast.
 
 [中文介绍](README.CN.md)
 
